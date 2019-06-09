@@ -17,6 +17,22 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "happy-harold": [
+        "dist/happy-harold",
+        "dist/happy-harold"
+      ],
+      "happy-harold/*": [
+        "dist/happy-harold/*",
+        "dist/happy-harold/*"
+      ],
+      "lib": [
+        "dist/lib"
+      ],
+      "lib/*": [
+        "dist/lib/*"
+      ]
+    }
   }
 }

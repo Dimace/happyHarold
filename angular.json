@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "happyHarold": {
+      "root": "projects/happy-harold",
+      "sourceRoot": "projects/happy-harold/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/happy-harold/tsconfig.lib.json",
+            "project": "projects/happy-harold/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/happy-harold/src/test.ts",
+            "tsConfig": "projects/happy-harold/tsconfig.spec.json",
+            "karmaConfig": "projects/happy-harold/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/happy-harold/tsconfig.lib.json",
+              "projects/happy-harold/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "libAdd"

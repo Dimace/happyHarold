@@ -1,0 +1,14 @@
+const fs = require('fs');
+//var someFile = '/projects/happy-harold/src/lib/package';
+var package = fs.readFileSync('./projects/happy-harold/package.json', 'utf8');
+var content = JSON.parse(package);
+var re = /(\d+)$/;
+var ver = Number.parseInt(content.version.match(re)[0]) + 1;
+console.log('ver', ver);
+var newVersion = '0.0.'+ ver;
+re = /(version": "\d*.\d*.\d*")/gi;
+var str = "version" + '": ' + '"' + newVersion + '"';
+package = package.replace(re, str);
+console.log('PACKAGE', package);
+console.log('Content', JSON.stringify(content).replace(re, newVersion));
+fs.writeFileSync('./projects/happy-harold/package.json', package, 'utf8');
